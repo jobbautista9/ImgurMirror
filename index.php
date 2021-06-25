@@ -84,9 +84,9 @@ if (strtolower($matches[2]) === 'gifv') {
   ?><!doctype html>
 <html>
   <body>
-    <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline controls="controls">
-      <source src="/<?=$matches[1]?>.webm" type="video/webm">
-      <source src="/<?=$matches[1]?>.mp4" type="video/mp4">
+    <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline controls="controls" style="display:block;margin:0 auto;">
+      <source src="/?<?=$matches[1]?>.webm" type="video/webm">
+      <source src="/?<?=$matches[1]?>.mp4" type="video/mp4">
     </video>
     <script>
       var gif = document.location.pathname + "?<?=$matches[1]?>.gif";
@@ -97,11 +97,11 @@ if (strtolower($matches[2]) === 'gifv') {
         document.body.appendChild(i);
       }
     </script>
-    <p>
+    <p style="text-align:center;">
       If the gifv isn't playing here, try the direct 
-      <a href="/<?=$matches[1]?>.mp4">mp4</a>, 
-      <a href="/<?=$matches[1]?>.webm">webm</a>, or 
-      <a href="/<?=$matches[1]?>.gif">gif</a> links
+      <a href="/?<?=$matches[1]?>.mp4">mp4</a>, 
+      <a href="/?<?=$matches[1]?>.webm">webm</a>, or 
+      <a href="/?<?=$matches[1]?>.gif">gif</a> links
     </p>
   </body>
 </html><?php
