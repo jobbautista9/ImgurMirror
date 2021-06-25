@@ -8,7 +8,6 @@
 $CACHE_FOLDER = './cache/';
 
 // Don't edit past here
-$isbeta = basename(__FILE__) === 'beta.php';
 $imgur = $_SERVER['QUERY_STRING'] ;
 $con = stream_context_create(array('http'=>array('timeout'=>15)));
 
@@ -18,17 +17,14 @@ if (!$_SERVER['QUERY_STRING']) {
   <body>
     <div>
       <h1>Imgur Proxy</h1>
-<? if ($isbeta) { ?>
-      <h2>BETA MODE</h2>
-<? } ?>
       <dl>
         <dt>Image</dt>
-        <dd><?=$_SERVER['HTTP_HOST']?>/imagehash</dd>
+        <dd><?=$_SERVER['HTTP_HOST']?>/?imagehash.ext</dd>
         <dt>Gallery</dt>
-        <dd><?=$_SERVER['HTTP_HOST']?>/a/albumhash</dd>
-        <dd><?=$_SERVER['HTTP_HOST']?>/gallery/albumhash</dd>
+        <dd><?=$_SERVER['HTTP_HOST']?>/a/?albumhash</dd>
+        <dd><?=$_SERVER['HTTP_HOST']?>/gallery/?albumhash</dd>
         <dt>GIFV</dt>
-        <dd><?=$_SERVER['HTTP_HOST']?>/hash.gifv</dd>
+        <dd><?=$_SERVER['HTTP_HOST']?>/?hash.gifv</dd>
       </dl>
     </div>
     <footer>
@@ -36,7 +32,7 @@ if (!$_SERVER['QUERY_STRING']) {
     </footer>
   </body>
 </html>
-<?
+<?php
   return;
 }
 
@@ -65,28 +61,7 @@ if (preg_match('/^(a|gallery)\/([a-zA-Z0-9]{5,})$/i', $imgur, $matches)) {
 ?><!doctype html>
 <html>
   <head>
-    <style>
-      html, body {
-        background-color: #111;
-        margin: 0;
-        padding: 0;
-      }
-      body a {
-        margin: 5px;
-        margin-bottom: 10px;
-        max-width: 100%;
-        display: block;
-        text-align: center;
-      }
-      body a img {
-        margin: 0 auto;
-        display: block;
-        max-width: 100%;
-      }
-      body a span {
-        color: #ccc;
-      }
-    </style>
+   <title>Imgur Mirror</title>
   </head>
   <body>
 <?php foreach($images as $image) { ?>
