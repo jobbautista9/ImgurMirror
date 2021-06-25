@@ -28,7 +28,7 @@ if (!$_SERVER['QUERY_STRING']) {
       </dl>
     </div>
     <footer>
-      Code on <a href="https://github.com/kageurufu/imgurmirror">github.com</a>
+      Code on <a href="https://tildegit.org/job/ImgurMirror">github.com</a>
     </footer>
   </body>
 </html>
